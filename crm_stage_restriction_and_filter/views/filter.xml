@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="filter_phone" model="ir.actions.act_window">
+        <field name="name">Lead with phone</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('phone','!=',False)]</field>
+    </record>
+    <record id="filter_email" model="ir.actions.act_window">
+        <field name="name">Lead with email</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('email_from','!=',False)]</field>
+    </record>
+        <record id="filter_tags" model="ir.actions.act_window">
+        <field name="name">Lead with email</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('tag_ids','in',False)]</field>
+    </record>
+    <menuitem
+            id="drop_filter"
+            name="Filter By"
+            parent="crm.crm_menu_root"/>
+    <menuitem
+        id="menu_has_phone"
+        name="Leads with Phone"
+        parent="drop_filter"
+        action="filter_phone"/>
+    <menuitem
+        id="menu_has_email"
+        name="Leads with Email"
+        parent="drop_filter"
+        action="filter_email"/>
+    <menuitem
+        id="menu_has_tag"
+        name="Leads with Tags"
+        parent="drop_filter"
+        action="filter_tags"/>
+</odoo>
